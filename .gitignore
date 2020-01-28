@@ -1,0 +1,7 @@
+# Directories
+/node_modules/
+
+# File Patterns
+*.js
+*.d.ts
+*.tsbuildinfo

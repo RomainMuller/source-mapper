@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+const { blue, green } = require('chalk');
+const { argv, exit } = require('process');
+const { mapSourceLocation } = require('../lib');
+
+const [, , location, ...rest] = argv;
+
+if (location == undefined) {
+  console.error(`Not enough arguments. Usage: ${argv[1]} /path/to/file:line:column`);
+  exit(-1);
+}
+
+if (rest.length > 0) {
+  console.error(`Too many arguments. Usage: ${argv[1]} /path/to/file:line:column`);
+  exit(-1);
+}
+
+const parts = /^(.*):(\d+):(\d+)?$/.exec(location);
+if (parts == null) {
+  console.error(`Unable to parse source location: ${location}. Format: /path/to/file:line:column`);
+  exit(-1);
+}
+
+mapSourceLocation({
+  file: parts[1],
+  line: parseInt(parts[2], 10),
+  column: parseInt(parts[3], 10),
+}).then(
+  location => {
+    console.log([
+      blue(location.file),
+      green(location.line),
+      green(location.column),
+    ].join(':'));
+  },
+  error => {
+    console.error(`Unable to map source location:`, error);
+    exit(1);
+  },
+);

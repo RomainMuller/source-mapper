@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "charset": "utf-8",
+    "composite": true,
+    "declaration": true,
+    "incremental": true,
+    "inlineSourceMap": true,
+    "lib": ["ES2018"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "target": "ES2018",
+  },
+  "include": [
+    "**/*.ts"
+  ]
+}

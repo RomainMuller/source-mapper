@@ -1,0 +1,35 @@
+{
+  "name": "@romainmuller/source-mapper",
+  "version": "0.0.1",
+  "description": "A tool that helps mapping source locations",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "bin": {
+    "source-mapper": "bin/source-mapper"
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "build:watch": "tsc --build --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "source-map",
+    "tool"
+  ],
+  "author": "Romain Marcadier-Muller",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">= 10.3.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^8.0.1",
+    "@types/node": "^10.17.13",
+    "typescript": "~3.7.4"
+  },
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "fs-extra": "^8.1.0",
+    "source-map": "^0.7.3"
+  }
+}

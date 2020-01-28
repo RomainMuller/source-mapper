@@ -1,0 +1,6 @@
+# Ignore everything by default
+*
+
+# Inclusion filters
+!*.js
+!*.d.ts
