@@ -2,5 +2,10 @@
 *
 
 # Inclusion filters
-!*.js
-!*.d.ts
+!**/*.js
+!**/*.d.ts
+!LICENSE
+!NOTICE
+!README.md
+
+/coverage/
