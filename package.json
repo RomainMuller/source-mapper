@@ -17,8 +17,16 @@
     "source-map",
     "tool"
   ],
-  "author": "Romain Marcadier-Muller",
+  "author": "Romain Marcadier-Muller (https://romainmuller.dev)",
   "license": "Apache-2.0",
+  "homepage": "https://github.com/RomainMuller/source-mapper",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RomainMuller/source-mapper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RomainMuller/source-mapper/issues"
+  },
   "engines": {
     "node": ">= 10.3.0"
   },
