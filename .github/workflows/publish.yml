@@ -40,7 +40,10 @@ jobs:
         run: yarn test
 
       - name: Publish to npmjs.com
-        run: npm publish --access public
+        run: |-
+          echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
+          npm publish --access public
+          rm .npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
