@@ -50,7 +50,9 @@ jobs:
       - name: Package
         id: package
         run: |-
-          FILE_NAME=$(npm pack)
+          MODULE_NAME=$(node -p "require('./package.json').name;")
+          cd $(mktemp -d)
+          FILE_NAME=$(npm pack ${MODULE_NAME})
           echo "::set-output name=name::${FILE_NAME}"
           echo "::set-output name=path::${PWD}/${FILE_NAME}"
       - name: Create GitHub Release
