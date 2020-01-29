@@ -1,4 +1,5 @@
 # `source-mapper`
+![Validation Build](https://github.com/RomainMuller/source-mapper/workflows/Validation%20Build/badge.svg?event=push)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/0d4732af386ab1bbcc0b/test_coverage)](https://codeclimate.com/github/RomainMuller/source-mapper/test_coverage)
 
 As the maintainer of `typescript` projects (and other source-map enabled
