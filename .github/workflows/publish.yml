@@ -39,13 +39,17 @@ jobs:
       - name: Test
         run: yarn test
 
+      - name: Publish to npmjs.com
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Package
         id: package
         run: |-
           FILE_NAME=$(npm pack)
           echo "::set-output name=name::${FILE_NAME}"
           echo "::set-output name=path::${PWD}/${FILE_NAME}"
-
       - name: Create GitHub Release
         id: create_release
         uses: actions/create-release@v1
@@ -66,8 +70,3 @@ jobs:
           asset_content_type: application/gzip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish to npmjs.com
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
