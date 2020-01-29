@@ -9,6 +9,12 @@
     "lib": ["ES2018"],
     "module": "CommonJS",
     "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "target": "ES2018",
   },
   "include": [
