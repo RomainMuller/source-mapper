@@ -37,9 +37,35 @@ jobs:
           restore-keys: |-
             ${{ runner.os }}-yarn-
 
+      - name: Set up CodeClimate
+        if: matrix.node-version == '10.x'
+        run: |
+          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 -o /tmp/cc-test-reporter
+          chmod +x /tmp/cc-test-reporter
+          export GIT_COMMIT_SHA=$(git rev-parse HEAD)
+          /tmp/cc-test-reporter before-build
+        env:
+          CC_TEST_REPORTER_ID:  ${{secrets.CC_TEST_REPORTER_ID}}
+          GIT_BRANCH:           ${{github.head_ref}}
+
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Build
         run: yarn build
       - name: Test
         run: yarn test
+
+      - name: CodeClimate Report
+        if: always() && matrix.node-version == '10.x'
+        run: |
+          export GIT_COMMIT_SHA=$(git rev-parse HEAD)
+          if [ -f coverage/lcov.info ]; then
+            /tmp/cc-test-reporter format-coverage --input-type lcov --output coverage/codeclimate.bin coverage/lcov.info
+            /tmp/cc-test-reporter upload-coverage --input coverage/codeclimate.bin
+          fi
+          if [ '${{job.status}}' = 'Success' ]; then
+            /tmp/cc-test-reporter after-build
+          fi
+        env:
+          CC_TEST_REPORTER_ID:  ${{secrets.CC_TEST_REPORTER_ID}}
+          GIT_BRANCH:           ${{github.head_ref}}
