@@ -6,3 +6,10 @@
       directory: /
       update_schedule: live
       version_requirement_updates: increase_versions
+      automerged_updates:
+        - match:
+            dependency_name: '@types/node'
+            update_type: 'semver:minor'
+        - match:
+            dependency_type: all
+            update_type: all
