@@ -1,6 +1,7 @@
 name: Version Bump
 
 on:
+  repository_dispatch:
   schedule:
     - cron: '0 12 * * MON-FRI'
 
