@@ -86,25 +86,17 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build-and-test]
 
-    if: github.event_name == 'push'
+    if: |-
+      github.event_name == 'push' && startsWith(github.event.commits[0].message, 'release: v')
 
     steps:
-      - name: Determine Tag
-        id: determine_tag
-        run: |-
-          TITLE=$(git log ${{ github.ref }}~1..${{ github.ref }} --pretty=format:%s)
-          if $(echo ${TITLE} | grep -qE '^release: v\d+\.\d+\.\d+$')
-          then
-            echo "::set-output name=tag::${TITLE/release: /}"
-          fi
-
       - name: Checkout code
-        if: steps.determine_tag.outputs.tag != null
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.PRIVILEGED_GITHUB_TOKEN }}
+
       - name: Apply Tag
-        if: steps.determine_tag.outputs.tag != null
         run: |-
-          git tag ${{ steps.determine_tag.outputs.tag }}
-          git push origin ${{ steps.determine_tag.outputs.tag }}
+          TAG=v$(node -p 'require("./package.json").version;')
+          git tag ${TAG}
+          git push origin ${TAG}
