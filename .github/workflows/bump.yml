@@ -1,0 +1,28 @@
+name: Version Bump
+
+on:
+  schedule:
+    - cron: '0 12 * * MON-FRI'
+
+jobs:
+  submit_version_bump:
+    name: Submit Version Bump
+    runs-on: ubuntu-latest
+
+    if: github.ref == 'master'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Prepare Changelog
+        run: npx standard-version
+
+      - name: Pull Request
+        uses: peter-evans/create-pull-request@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: 'release: v${{ ? }}'
+          body: 'See CHANGELOG.md'
+          branch: release/automated
+
