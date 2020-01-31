@@ -61,7 +61,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}
-          body: ''
+          body: 'See CHANGELOG.md'
           draft: false
           prerelease: false
         env:
