@@ -87,7 +87,7 @@ jobs:
     needs: [build-and-test]
 
     if: |-
-      github.event_name == 'push' && startsWith(github.event.commits[0].message, 'release: v')
+      github.event_name == 'push' && startsWith(github.event.commits[0].message, 'chore(release): v')
 
     steps:
       - name: Checkout code
