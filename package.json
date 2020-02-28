@@ -36,7 +36,7 @@
     "@types/node": "^10.17.17",
     "jest": "^25.1.0",
     "standard-version": "^7.1.0",
-    "typescript": "~3.8.2"
+    "typescript": "~3.8.3"
   },
   "dependencies": {
     "chalk": "^3.0.0",
