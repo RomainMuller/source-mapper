@@ -1,6 +1,6 @@
 {
   "name": "@romainmuller/source-mapper",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A tool that helps mapping source locations",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
