@@ -33,7 +33,7 @@
   "devDependencies": {
     "@types/fs-extra": "^8.1.0",
     "@types/jest": "^25.2.3",
-    "@types/node": "^10.17.24",
+    "@types/node": "^10.17.25",
     "jest": "^26.0.1",
     "standard-version": "^8.0.0",
     "typescript": "~3.9.5"
