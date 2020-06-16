@@ -39,7 +39,7 @@
     "typescript": "~3.9.5"
   },
   "dependencies": {
-    "chalk": "^4.0.0",
+    "chalk": "^4.1.0",
     "fs-extra": "^9.0.1",
     "source-map": "^0.7.3"
   },
