@@ -34,7 +34,7 @@
     "@types/fs-extra": "^8.1.0",
     "@types/jest": "^26.0.0",
     "@types/node": "^10.17.26",
-    "jest": "^26.0.1",
+    "jest": "^26.1.0",
     "standard-version": "^8.0.0",
     "typescript": "~3.9.5"
   },
