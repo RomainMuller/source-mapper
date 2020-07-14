@@ -35,7 +35,7 @@
     "@types/jest": "^26.0.4",
     "@types/node": "^10.17.26",
     "jest": "^26.1.0",
-    "standard-version": "^8.0.0",
+    "standard-version": "^8.0.2",
     "typescript": "~3.9.6"
   },
   "dependencies": {
