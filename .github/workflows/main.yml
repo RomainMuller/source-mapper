@@ -76,10 +76,12 @@ jobs:
     if: github.event_name == 'pull_request' && (github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]')
 
     steps:
-      - name: Approve Pull Request
-        uses: hmarr/auto-approve-action@7782c7e2bdf62b4d79bdcded8332808fd2f179cd
+      - name: Request @dependabot auto-merge
+        uses: ahmadnassri/action-dependabot-auto-merge@v2
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          command: 'squash and merge'
+          github-token: ${{ secrets.PRIVILEGED_GITHUB_TOKEN }}
+          target: minor
 
   tag-releases-on-main:
     name: Tag Releases
