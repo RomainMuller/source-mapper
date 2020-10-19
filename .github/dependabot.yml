@@ -10,3 +10,8 @@
       ignore:
         - dependency-name: '@types/node'
           versions: ['>= 11.a']
+
+    - directory: /
+      package-ecosystem: github-actions
+      schedule:
+        interval: daily
