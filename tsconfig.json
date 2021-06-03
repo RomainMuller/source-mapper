@@ -6,7 +6,7 @@
     "declaration": true,
     "incremental": true,
     "inlineSourceMap": true,
-    "lib": ["ES2018"],
+    "lib": ["ES2019"],
     "module": "CommonJS",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
@@ -15,7 +15,7 @@
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "target": "ES2018",
+    "target": "ES2019",
   },
   "include": [
     "**/*.ts"
